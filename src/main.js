@@ -65,7 +65,7 @@ async function run() {
 }
 
 function checkIsEn(body) {
-  var en = /^[a-zA-Z0-9. -_?]*$/;
+  var en = /^[a-z_A-Z0-9-\.!@#\$%\\\^&\*\)\(\+=\{\}\[\]\/",'<>~\·`\?:;|\s]*$/;
   const result = en.test(body);
   core.info(`[CheckIsEn] [${body} is ${result}]`);
   return result;
