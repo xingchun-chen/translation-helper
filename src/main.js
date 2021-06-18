@@ -21,11 +21,11 @@ async function run() {
       if (isIssue) {
         number = context.payload.issue.number;
         title = context.payload.issue.title;
-        body = context.payload.issue.body;
+        body = context.payload.issue.body.toString();
       } else {
         number = context.payload.pull_request.number;
         title = context.payload.pull_request.title;
-        body = context.payload.pull_request.body;
+        body = context.payload.pull_request.body.toString();
       }
 
       const translateTitle = core.getInput('translate-title') || 'true';
@@ -65,7 +65,7 @@ async function run() {
 }
 
 function checkIsEn(body) {
-  var en = /^[a-z_A-Z0-9-\.!@#\$%\\\^&\*\)\(\+=\{\}\[\]\/",'<>~\·`\?:;|\s]*$/;
+  var en = /^[a-zA-Z0-9_\-\.!@#\$%\\\^&\*\)\(\+=\{\}\[\]\/",'<>~\·`\?:;|\s]*$/;
   const result = en.test(body);
   core.info(`[CheckIsEn] [${body} is ${result}]`);
   return result;
