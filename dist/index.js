@@ -15597,8 +15597,8 @@ async function run() {
 function checkIsEn(body) {
   var en = /^[a-zA-Z0-9_\-\.!@#\$%\\\^&\*\)\(\+=\{\}\[\]\/",'<>~\·`\?:;|\s]*$/;
   const bodyType = typeof body;
-  const newBody = body.toString().trim();
-  const result = en.test(newBody);
+  const bodyString = body.toString().trim();
+  const result = en.test(bodyString);
   core.info(`[CheckIsEn] [body type is ${bodyType}, ${body} is ${result}]`);
   return result;
 }
